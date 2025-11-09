@@ -1,0 +1,17 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "Starting build phase..."
+  build:
+    commands:
+      - echo "Preparing deployment artifact..."
+      - mkdir -p output
+      - cp -r templatemo_600_prism_flux/* output/
+      - cp appspec.yml output/
+      - cp -r scripts output/
+artifacts:
+  files:
+    - '**/*'
+  base-directory: output
